@@ -206,7 +206,7 @@ label {
   cursor: pointer;
   padding: 10px;
   transition: 0.5s;
-  box-shadow: 0 0 20px rgb(175, 175, 175);
+  box-shadow: 0 0 20px var(--box-shadow);
 }
 
 label::after {
@@ -235,9 +235,9 @@ end switch button
 #header {
   background-color: var(--section-background-two);
   position: relative;
-  box-shadow: 0 0 40px rgba(223, 219, 219, 0.8);
-  -moz-box-shadow: 0 0 40px rgba(223, 219, 219, 0.8);
-  -webkit-box-shadow: 0 0 40px rgba(223, 219, 219, 0.8);
+  box-shadow: 0 0 10px var(--box-shadow);
+  -moz-box-shadow: 0 0 10px var(--box-shadow);
+  -webkit-box-shadow: 0 0 10px var(--box-shadow);
 }
 
 #header .flex {
@@ -635,7 +635,7 @@ end switch button
 }
 
 #features .box {
-  box-shadow: 0 2px 10px 0 #ececec;
+  box-shadow: 0 2px 10px 0 var(--box-shadow);
 }
 
 #features .container .image {
