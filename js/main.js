@@ -1,8 +1,11 @@
+//function for scroller
+let el = document.querySelector("#scroller");
 let height =
   document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-let el = document.querySelector("#scroller");
 window.addEventListener("scroll", () => {
+  let el = document.querySelector("#scroller");
+
   let scrollTop = document.documentElement.scrollTop;
 
   el.style.width = `${(scrollTop / height) * 100}%`;
@@ -56,7 +59,7 @@ function startCount(ele) {
   }, 2000 / goal);
 }
 
-// count time
+// count time for a special day
 
 let countDownDate = new Date("Mar 21, 2023 23:59:59").getTime();
 
@@ -83,3 +86,47 @@ let counter = setInterval(() => {
     clearInterval();
   }
 }, 1000);
+let rootDocument = document.querySelector(":root");
+
+// function for switch
+let toggle_switch = document.querySelector("#toggle_switch");
+let label = document.querySelector("#switchLabel");
+
+function checkSwitch() {
+  if (toggle_switch.checked) {
+    ramadanOn();
+  } else {
+    ramadanOff();
+  }
+}
+checkSwitch();
+label.addEventListener("mouseout", checkSwitch);
+
+function ramadanOn() {
+  el.classList.add("scrollerFanos");
+  el.classList.remove("scrollerRegular");
+  document.body.style.backgroundColor = "#fba30045";
+  rootDocument.style.cssText = `
+  --main-color: #b7a179;
+  --main-alt-color: #bf8b66e8;
+  --section-background:#eccd93eb;
+  --p-text:#fff;
+  --transparent:#f6f6f675;
+  --spikes:top/contain url("../imgs/spikes.png") repeat-x;
+
+  `;
+}
+
+function ramadanOff() {
+  el.classList.remove("scrollerFanos");
+  el.classList.add("scrollerRegular");
+  document.body.style.backgroundColor = "#fff";
+  rootDocument.style.cssText = `
+  --main-color:#2196f3;
+  --main-alt-color:#2980b9;
+  --section-background:#f6f6f6;
+  --p-text:#333;
+  --transparent:transparent;
+  --spikes: linear-gradient(135deg, #fff 25%, transparent 25%), linear-gradient(-135deg, #fff 25%, transparent 25%);
+  `;
+}
