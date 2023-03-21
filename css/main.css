@@ -432,7 +432,7 @@ end switch button
 }
 
 /*fanos landing */
-.text:before {
+.landing .text:before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   content: "\f186";
