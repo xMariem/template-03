@@ -122,7 +122,7 @@ function ramadanOff() {
   el.classList.add("scrollerRegular");
   document.body.style.backgroundColor = "#fff";
   rootDocument.style.cssText = `
-  --box-shadow:#ececec
+  --box-shadow:#ececec;
   --main-color:#2196f3;
   --main-alt-color:#2980b9;
   --section-background:#f6f6f6;
