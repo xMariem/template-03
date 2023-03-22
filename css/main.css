@@ -1208,7 +1208,7 @@ end switch button
   margin-right: 10px;
   border-radius: 10px;
   transition: var(--main-transition);
-  width: 75px;
+  min-width: 75px;
   text-align: center;
 }
 

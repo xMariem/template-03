@@ -61,31 +61,38 @@ function startCount(ele) {
 
 // count time for a special day
 
-let countDownDate = new Date("Mar 21, 2023 23:59:59").getTime();
-
+let countDownDate = new Date("Mar 21, 2024 23:59:59").getTime();
+let dateDiff;
 let counter = setInterval(() => {
   let dateNow = new Date().getTime();
 
-  let dateDiff = countDownDate - dateNow;
-
+  dateDiff = countDownDate - dateNow;
   // Get time units
   let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
   let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
-
-  document.querySelector(".unite .days").innerHTML = days;
-  document.querySelector(".unite .hours").innerHTML =
-    hours < 10 ? `0${hours}` : hours;
-  document.querySelector(".unite .minutes").innerHTML =
-    minutes < 10 ? `0${minutes}` : minutes;
-  document.querySelector(".unite .seconds").innerHTML =
-    seconds < 10 ? `0${seconds}` : seconds;
-
-  if (dateDiff < 0) {
-    clearInterval();
+  if (dateDiff <= 0) {
+    clearInterval(counter);
+    document.querySelector(".info .time").remove();
+    let info = document.querySelector(".events .container .info");
+    let event = document.createElement("div");
+    let eventText = document.createTextNode("Coming soon...");
+    event.append(eventText);
+    event.style.cssText = "font-size:45px;text-align:center";
+    info.insertBefore(event, info.firstChild);
+  } else {
+    document.querySelector(".unite .days").innerHTML = days;
+    document.querySelector(".unite .hours").innerHTML =
+      hours < 10 ? `0${hours}` : hours;
+    document.querySelector(".unite .minutes").innerHTML =
+      minutes < 10 ? `0${minutes}` : minutes;
+    document.querySelector(".unite .seconds").innerHTML =
+      seconds < 10 ? `0${seconds}` : seconds;
   }
 }, 1000);
+
+console.log(dateDiff);
 let rootDocument = document.querySelector(":root");
 
 // function for switch
